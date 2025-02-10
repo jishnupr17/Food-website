@@ -1,0 +1,21 @@
+
+   
+    .product {
+        margin-top: 80px; /* Adjust based on navbar height */
+      }
+
+      body{
+        background-color: rgb(221, 235, 235);
+      }
+    
+      /* Hide scrollbar for WebKit browsers */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
