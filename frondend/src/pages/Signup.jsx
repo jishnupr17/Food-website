@@ -34,7 +34,7 @@ const Signup = () => {
     if (firstName && email && password && confirmPassword) {
       if (password === confirmPassword) {
         const fetchData = await fetch(
-          `${import.meta.env.https://food-website-backend-cecq.onrender.com}/signup`,
+          `${import.meta.env.VITE_REACT_APP_SERVER_DOMAIN}/signup`,
           {
             method: "POST",
             headers: {
