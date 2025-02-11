@@ -25,7 +25,7 @@ const Signup = () => {
     }));
   };
 
-  console.log(import.meta.env.https://food-website-backend-cecq.onrender.com);
+  console.log(import.meta.env.VITE_REACT_APP_SERVER_DOMAIN);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
