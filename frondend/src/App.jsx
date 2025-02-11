@@ -17,25 +17,32 @@ import Cart from "./pages/Cart";
 
 
 const App = () => {
-  const dispatch = useDispatch()
-  const productData = useSelector((state)=>state.product)
-  console.log(productData);
+  const dispatch = useDispatch();
+  const productData = useSelector((state) => state.product);
   
-
   useEffect(() => {
-    (async () => {
+    const fetchProductData = async () => {
       try {
         const res = await fetch(`${import.meta.env.VITE_REACT_APP_SERVER_DOMAIN}/product`);
+        if (!res.ok) {
+          throw new Error(`Failed to fetch products. Status: ${res.status}`);
+        }
         const resData = await res.json();
-        console.log(resData);
+        console.log('Fetched Products:', resData);
+        
+        // Dispatch action to store the fetched products in Redux state
         dispatch(setDataProduct(resData));
       } catch (error) {
         console.error("Error fetching products:", error);
         toast.error("Failed to load products");
       }
-    })();
+    };
+
+    fetchProductData();
   }, [dispatch]);
-  console.log(productData);
+
+  console.log('Product Data from Redux:', productData);
+
 
   return (
     <>
