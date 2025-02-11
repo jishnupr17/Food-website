@@ -25,7 +25,7 @@ const Signup = () => {
     }));
   };
 
-  console.log(import.meta.env.VITE_REACT_APP_SERVER_DOMAIN);
+  console.log(import.meta.env.https://food-website-backend-cecq.onrender.com);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const Signup = () => {
     if (firstName && email && password && confirmPassword) {
       if (password === confirmPassword) {
         const fetchData = await fetch(
-          `${import.meta.env.VITE_REACT_APP_SERVER_DOMAIN}/signup`,
+          `${import.meta.env.https://food-website-backend-cecq.onrender.com}/signup`,
           {
             method: "POST",
             headers: {
