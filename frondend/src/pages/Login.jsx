@@ -39,7 +39,7 @@ const Signup = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_REACT_APP_SERVER_DOMAIN}/login`,
+        `${import.meta.env.https://food-website-backend-cecq.onrender.com}/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
