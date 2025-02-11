@@ -44,7 +44,7 @@ const Newproduct = () => {
     if (name?.trim() && image?.trim() && category?.trim() && price) {
       try {
         const response = await fetch(
-          `${https://food-website-backend-cecq.onrender.com}/uploadProduct`,
+          `$import.meta.env.https://food-website-backend-cecq.onrender.com}/uploadProduct`,
           {
             method: "POST",
             headers: {
