@@ -19,29 +19,28 @@ import Cart from "./pages/Cart";
 const App = () => {
   const dispatch = useDispatch();
   const productData = useSelector((state) => state.product);
-  
-  useEffect(() => {
-    const fetchProductData = async () => {
-      try {
-        const res = await fetch(`${import.meta.env.VITE_REACT_APP_SERVER_DOMAIN}/product`);
-        if (!res.ok) {
-          throw new Error(`Failed to fetch products. Status: ${res.status}`);
-        }
-        const resData = await res.json();
-        console.log('Fetched Products:', resData);
-        
-        // Dispatch action to store the fetched products in Redux state
-        dispatch(setDataProduct(resData));
-      } catch (error) {
-        console.error("Error fetching products:", error);
-        toast.error("Failed to load products");
-      }
-    };
 
+  const fetchProductData = async () => {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_REACT_APP_SERVER_DOMAIN}/product`);
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(`Failed to fetch products. Status: ${res.status}, ${errorText}`);
+      }
+      const resData = await res.json();
+      console.log('Fetched Products:', resData);
+      dispatch(setDataProduct(resData));
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message); // `error` is an object, use `error.message`
+    }
+  };
+
+  useEffect(() => {
     fetchProductData();
   }, [dispatch]);
 
-  console.log('Product Data from Redux:', productData);
+  ;
 
 
   return (
